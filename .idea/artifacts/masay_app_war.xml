@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="masay_app:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>masay_app</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="masay_app-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="masay_app:war exploded" />
+    </root>
+  </artifact>
+</component>
