@@ -9,6 +9,7 @@ import com.masay.entity.User;
 
 import java.sql.SQLException;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class Main {
@@ -154,8 +155,8 @@ public class Main {
 
         System.out.println("                          ");
         System.out.println("                          ");
-        System.out.println("LOGIN                     ");
-        System.out.println("--------------------------");
+        System.out.println("LOGIN TO YOUR ACCOUNT     ");
+        System.out.println("---------------------     ");
         System.out.println("                          ");
 
         System.out.print("Enter Your Email : ");
@@ -182,7 +183,9 @@ public class Main {
 
         System.out.println("                                                 ");
         System.out.println("                                                 ");
-        System.out.println("Welcome To The Dashboard" + " / " + user.getName());
+        System.out.println("Welcome To The Dashboard" + " : " + user.getName());
+        System.out.println("---------------------------------                ");
+        System.out.println("                                                 ");
         System.out.println("                                                 ");
 
         String dashboardChoice = user.getRole();
@@ -201,7 +204,67 @@ public class Main {
 
     }
 
-    private static void operatorDashboard() {  System.out.println("The Operator Dashboard"); }
+    private static void operatorDashboard() {
+
+        System.out.println("[1] - RESTAURANTS CRUD MANAGEMENT");
+        System.out.println("[2] - MEALS CRUD MANAGEMENT      ");
+        System.out.println("[3] - ORDERS MANAGEMENT          ");
+        System.out.println("                                 ");
+
+        System.out.print("Please enter your choice : ");
+
+        int operatorDashboardChoice = scanner.nextInt();
+
+        switch(operatorDashboardChoice) {
+            case 1:
+                restaurantsCrudManagement();
+                break;
+            case 2:
+                mealsCrudManagement();
+                break;
+            case 3:
+                ordersManagement();
+                break;
+        }
+
+    }
+
+    public static  void restaurantsCrudManagement(){
+
+
+        System.out.println("RESTAURANT MANAGEMENT   ");
+        System.out.println("------------------------");
+        System.out.println("                        ");
+        System.out.println("                        ");
+        System.out.println("[1] - CREATE RESTAURANT ");
+        System.out.println("[2] - GET ALL RESTAURANT");
+        System.out.println("                        ");
+        System.out.println("                        ");
+
+        System.out.print("Please enter your choice : ");
+
+        int restaurantManagementChoice = scanner.nextInt();
+
+        switch(restaurantManagementChoice) {
+            case 1:
+                addRestaurant();
+                break;
+            case 2:
+                getAllRestaurant();
+                break;
+        }
+
+
+    }
+
+    public static void addRestaurant(){ System.out.println("Add Restaurant Method"); }
+
+    public static void getAllRestaurant(){ System.out.println("Get All Restaurant Method"); }
+
+    public static  void mealsCrudManagement(){ System.out.println("Meals CRUD Management Method"); }
+
+    public static  void ordersManagement(){ System.out.println("Orders Management Method"); }
+
 
     private static void customerDashboard() { System.out.println("The Customer Dashboard"); }
 
