@@ -5,21 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2d5d386f-fd84-4249-b4b6-232a1d62a381" name="Changes" comment="Create Project Structure">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/masay_war.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/masay_war_exploded.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/masay/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/masay/PersistenceManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/masay/dao/AddressDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/masay/dao/OperatorDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/masay/dao/UserDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/masay/entity/Address.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/masay/entity/Address.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/masay/entity/Customer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/masay/entity/Deliverer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/masay/entity/Operator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/masay/entity/Operator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/masay/entity/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/masay/entity/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/masay/util/DbConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/masay/util/DbConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/masay/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/masay/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/masay/PersistenceManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/masay/utils/PersistenceManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/masay/dao/AddressDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/masay/dao/AddressDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/masay/dao/OperatorDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/masay/dao/OperatorDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/masay/dao/UserDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/masay/dao/UserDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/masay/util/DbConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/masay/utils/DbConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/masay/util/PasswordHasher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/masay/utils/PasswordHasher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/masay/util/Validation.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/masay/utils/Validation.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,12 +57,12 @@
   }
 }]]></component>
   <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+    <configuration name="com.masay.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="com.masay.Main" />
       <module name="masay" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.masay.*" />
+          <option name="PATTERN" value="com.masay.utils.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -78,7 +72,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.com.masay.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -91,7 +85,7 @@
       <option name="presentableId" value="Default" />
       <updated>1669066408557</updated>
       <workItem from="1669066410605" duration="3855000" />
-      <workItem from="1669074295848" duration="14442000" />
+      <workItem from="1669074295848" duration="16959000" />
     </task>
     <task id="LOCAL-00001" summary="Create Project Structure">
       <created>1669071147636</created>

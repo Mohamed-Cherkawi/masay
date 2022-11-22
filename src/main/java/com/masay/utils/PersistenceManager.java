@@ -1,4 +1,4 @@
-package com.masay;
+package com.masay.utils;
 
 import jakarta.persistence.EntityManager;
 

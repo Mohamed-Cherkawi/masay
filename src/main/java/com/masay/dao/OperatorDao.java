@@ -1,6 +1,6 @@
 package com.masay.dao;
 
-import com.masay.PersistenceManager;
+import com.masay.utils.PersistenceManager;
 import com.masay.entity.Operator;
 import jakarta.persistence.EntityManager;
 

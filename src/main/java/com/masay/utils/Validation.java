@@ -1,4 +1,4 @@
-package com.masay.util;
+package com.masay.utils;
 
 import java.util.Scanner;
 

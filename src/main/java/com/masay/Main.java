@@ -5,6 +5,7 @@ import com.masay.dao.OperatorDao;
 import com.masay.dao.UserDao;
 import com.masay.entity.Address;
 import com.masay.entity.Operator;
+import com.masay.entity.User;
 
 import java.sql.SQLException;
 
@@ -59,7 +60,6 @@ public class Main {
         } while(choice != 0);
 
     }
-
 
     public static void signup(){
 
@@ -146,10 +146,65 @@ public class Main {
 
     }
 
-    public static  void addCustomer(){}
+    public static  void addCustomer(){ }
 
-    public static  void addDeliverer(){}
+    public static  void addDeliverer(){ }
 
-    public static void login(){ System.out.println("The login method"); }
+    public static void login(){
+
+        System.out.println("                          ");
+        System.out.println("                          ");
+        System.out.println("LOGIN                     ");
+        System.out.println("--------------------------");
+        System.out.println("                          ");
+
+        System.out.print("Enter Your Email : ");
+        String email = scanner.next();
+
+        System.out.print("Enter Your Password : ");
+        String password = scanner.next();
+
+        User user = userDao.getUserByEmail(email);
+
+        if(user.getPassword().equals(password)){
+
+            dashboard(user);
+
+        }else{
+
+            System.out.println("Invalid Credentials");
+
+        }
+
+    }
+
+    public static void dashboard(User user){
+
+        System.out.println("                                                 ");
+        System.out.println("                                                 ");
+        System.out.println("Welcome To The Dashboard" + " / " + user.getName());
+        System.out.println("                                                 ");
+
+        String dashboardChoice = user.getRole();
+
+        switch(dashboardChoice) {
+            case "operator":
+                operatorDashboard();
+                break;
+            case "customer":
+                customerDashboard();
+                break;
+            case "deliverer":
+                delivererDashboard();
+                break;
+        }
+
+    }
+
+    private static void operatorDashboard() {  System.out.println("The Operator Dashboard"); }
+
+    private static void customerDashboard() { System.out.println("The Customer Dashboard"); }
+
+    private static void delivererDashboard() { System.out.println("The Deliverer Dashboard"); }
 
 }
