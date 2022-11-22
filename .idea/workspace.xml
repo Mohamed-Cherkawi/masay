@@ -5,6 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2d5d386f-fd84-4249-b4b6-232a1d62a381" name="Changes" comment="Create Project Structure">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/masay/classes/Authentication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/masay/classes/Dashboard.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/masay/classes/RestaurantManagement.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/masay/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/masay/Main.java" afterDir="false" />
     </list>
@@ -81,7 +84,7 @@
       <workItem from="1669101085896" duration="1100000" />
       <workItem from="1669102836440" duration="692000" />
       <workItem from="1669103556547" duration="591000" />
-      <workItem from="1669141113784" duration="4706000" />
+      <workItem from="1669141113784" duration="10436000" />
     </task>
     <task id="LOCAL-00001" summary="Create Project Structure">
       <created>1669071147636</created>

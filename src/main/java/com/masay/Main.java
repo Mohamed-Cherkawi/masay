@@ -1,29 +1,14 @@
 package com.masay;
 
-import com.masay.dao.AddressDao;
-import com.masay.dao.OperatorDao;
-import com.masay.dao.RestaurantDao;
-import com.masay.dao.UserDao;
-import com.masay.entity.Address;
-import com.masay.entity.Operator;
-import com.masay.entity.Restaurant;
-import com.masay.entity.User;
+import com.masay.classes.Authentication;
 import java.sql.SQLException;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main {
 
-    static UserDao userDao = new UserDao();
-    static OperatorDao operatorDao = new OperatorDao();
-    static AddressDao addressDao = new AddressDao();
-    static RestaurantDao restaurantDao = new RestaurantDao();
     static Scanner scanner = new Scanner(System.in);
 
     static int choice;
-    static int signupChoice;
-    static int operatorDashboardChoice;
-    static int restaurantManagementChoice;
 
     public static void main(String[] args) throws SQLException {
 
@@ -54,10 +39,11 @@ public class Main {
             switch(choice) {
 
                 case 1:
-                    signup();
+                   Authentication.signup();
                     break;
+
                 case 2:
-                    login();
+                    Authentication.login();
                     break;
 
             }
@@ -65,266 +51,5 @@ public class Main {
         } while(choice != 0);
 
     }
-
-    public static void signup(){
-
-        do {
-
-            System.out.println("                          ");
-            System.out.println("                          ");
-            System.out.println("SIGNUP                    ");
-            System.out.println("--------------------------");
-            System.out.println("                          ");
-            System.out.println("[1] - OPERATOR            ");
-            System.out.println("[2] - CUSTOMER            ");
-            System.out.println("[3] - DELIVERER           ");
-            System.out.println("[0] - GO BACK           ");
-            System.out.println("                          ");
-
-            System.out.print("Please enter your choice : ");
-
-             signupChoice = scanner.nextInt();
-
-            switch (signupChoice) {
-
-                case 1:
-                    addOperator();
-                    break;
-                case 2:
-                    addCustomer();
-                    break;
-                case 3:
-                    addDeliverer();
-                    break;
-
-            }
-
-        }while(signupChoice != 0);
-
-    }
-
-    public static  void addOperator(){
-
-        System.out.println("                               ");
-        System.out.println("                               ");
-        System.out.println("Please enter your information :");
-        System.out.println("-------------------------------");
-        System.out.println("                               ");
-
-        System.out.print("Enter your name : ");
-        String name = scanner.next();
-
-        System.out.print("Enter your email : ");
-        String email = scanner.next();
-
-        System.out.print("Enter your phone : ");
-        String phone = scanner.next();
-
-        System.out.print("Enter your password : ");
-        String password = scanner.next();
-
-        System.out.print("Enter your position : ");
-        String position = scanner.next();
-
-        Operator operator = new Operator(name, email, phone, password,"operator", position);
-
-        Operator createdOperator =  operatorDao.addOperator(operator);
-        System.out.println("                                       ");
-        System.out.println("                                       ");
-
-        System.out.println("Please enter your address :");
-        System.out.println("----------------------------");
-        System.out.println("                             ");
-
-        System.out.print("Enter your country : ");
-        String country = scanner.next();
-
-        System.out.print("Enter your city : ");
-        String city = scanner.next();
-
-        System.out.print("Enter your street : ");
-        String street = scanner.next();
-
-        System.out.print("Enter your home number : ");
-        int homeNumber = scanner.nextInt();
-
-        Address address = new Address(country, city, street, homeNumber);
-
-        address.setUser(createdOperator);
-
-        addressDao.addAddress(address);
-
-    }
-
-    public static  void addCustomer(){ }
-
-    public static  void addDeliverer(){ }
-
-
-    public static void login(){
-
-        System.out.println("                          ");
-        System.out.println("                          ");
-        System.out.println("LOGIN TO YOUR ACCOUNT     ");
-        System.out.println("---------------------     ");
-        System.out.println("                          ");
-
-        System.out.print("Enter Your Email : ");
-        String email = scanner.next();
-
-        System.out.print("Enter Your Password : ");
-        String password = scanner.next();
-
-        User user = userDao.getUserByEmail(email);
-
-        if(user.getPassword().equals(password)){
-
-            dashboard(user);
-
-        }else{
-
-            System.out.println("Invalid Credentials");
-
-        }
-
-    }
-
-    public static void dashboard(User user){
-
-
-
-        String dashboardChoice = user.getRole();
-
-        switch(dashboardChoice) {
-
-            case "operator":
-                operatorDashboard(user);
-                break;
-            case "customer":
-                customerDashboard();
-                break;
-            case "deliverer":
-                delivererDashboard();
-                break;
-
-        }
-
-    }
-
-    private static void operatorDashboard(User user) {
-
-        do {
-
-            System.out.println("                                                 ");
-            System.out.println("                                                 ");
-            System.out.println("Welcome To The Dashboard" + " : " + user.getName());
-            System.out.println("---------------------------------                ");
-            System.out.println("                                                 ");
-            System.out.println("                                                 ");
-            System.out.println("[1] - RESTAURANTS CRUD MANAGEMENT");
-            System.out.println("[2] - MEALS CRUD MANAGEMENT      ");
-            System.out.println("[3] - ORDERS MANAGEMENT          ");
-            System.out.println("[0] - GO BACK          ");
-            System.out.println("                                 ");
-
-            System.out.print("Please enter your choice : ");
-
-             operatorDashboardChoice = scanner.nextInt();
-
-            switch (operatorDashboardChoice) {
-
-                case 1:
-                    restaurantsCrudManagement(user);
-                    break;
-                case 2:
-                    mealsCrudManagement();
-                    break;
-                case 3:
-                    ordersManagement();
-                    break;
-
-            }
-
-        }while (operatorDashboardChoice != 0);
-
-    }
-
-    public static  void restaurantsCrudManagement(User user){
-
-        do {
-
-            System.out.println("RESTAURANT MANAGEMENT   ");
-            System.out.println("---------------------   ");
-            System.out.println("                        ");
-            System.out.println("                        ");
-            System.out.println("[1] - CREATE RESTAURANT ");
-            System.out.println("[2] - GET ALL RESTAURANT");
-            System.out.println("[0] - GO BACK");
-            System.out.println("                        ");
-            System.out.println("                        ");
-
-            System.out.print("Please enter your choice : ");
-
-            restaurantManagementChoice = scanner.nextInt();
-
-            switch (restaurantManagementChoice) {
-
-                case 1:
-                    addRestaurant(user);
-                    break;
-                case 2:
-                    getAllRestaurant();
-                    break;
-
-            }
-        }while(restaurantManagementChoice != 0);
-
-    }
-
-    public static void addRestaurant(User user){
-
-        System.out.println("                ");
-        System.out.println("                ");
-        System.out.println("ADD RESTAURANT :");
-        System.out.println("----------------");
-        System.out.println("                ");
-        System.out.println("                 ");
-
-        System.out.print("Enter Restaurant name : ");
-
-        String restaurantName = scanner.next();
-
-        Restaurant restaurant = new Restaurant(restaurantName);
-
-        Operator operator = (Operator) operatorDao.getOperatorByEmail(user.getEmail());
-
-        restaurant.setOperator(operator);
-
-        restaurantDao.addRestaurant(restaurant);
-
-    }
-
-    public static void getAllRestaurant(){
-
-        List<Restaurant> restaurants = restaurantDao.getAllRestaurants();
-
-        System.out.println("                                           ");
-        System.out.println("                                           ");
-
-        restaurants.forEach((restaurant) -> System.out.println("["+restaurant.getId()+"] - " + restaurant.getName()));
-
-        System.out.print("Please enter your choice : ");
-
-        int restaurantChoice = scanner.nextInt();
-
-    }
-
-    public static  void mealsCrudManagement(){ System.out.println("Meals CRUD Management Method"); }
-
-    public static  void ordersManagement(){ System.out.println("Orders Management Method"); }
-
-    private static void customerDashboard() { System.out.println("The Customer Dashboard"); }
-
-    private static void delivererDashboard() { System.out.println("The Deliverer Dashboard"); }
 
 }
