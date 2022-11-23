@@ -1,7 +1,6 @@
 package com.masay;
 
 import com.masay.classes.Authentication;
-import java.sql.SQLException;
 import java.util.Scanner;
 
 public class Main {
@@ -10,7 +9,7 @@ public class Main {
 
     static int choice;
 
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) {
 
         do {
 
