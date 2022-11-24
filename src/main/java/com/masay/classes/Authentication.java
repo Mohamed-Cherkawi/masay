@@ -1,11 +1,7 @@
 package com.masay.classes;
 
-import com.masay.dao.AddressDao;
-import com.masay.dao.OperatorDao;
-import com.masay.dao.UserDao;
-import com.masay.entity.Address;
-import com.masay.entity.Operator;
-import com.masay.entity.User;
+import com.masay.dao.*;
+import com.masay.entity.*;
 
 import java.util.Scanner;
 
@@ -13,6 +9,8 @@ public class Authentication {
 
     static UserDao userDao = new UserDao();
     static OperatorDao operatorDao = new OperatorDao();
+    static CustomerDao customerDao = new CustomerDao();
+    static DelivererDao delivererDao = new DelivererDao();
     static AddressDao addressDao = new AddressDao();
 
     static Scanner scanner = new Scanner(System.in);
@@ -60,6 +58,7 @@ public class Authentication {
 
     public static  void addOperator(){
 
+        System.out.println(" ADD OPERATOR : ");
         System.out.println("                               ");
         System.out.println("                               ");
         System.out.println("Please enter your information :");
@@ -78,10 +77,7 @@ public class Authentication {
         System.out.print("Enter your password : ");
         String password = scanner.next();
 
-        System.out.print("Enter your position : ");
-        String position = scanner.next();
-
-        Operator operator = new Operator(name, email, phone, password,"operator", position);
+        Operator operator = new Operator(name, email, phone, password,"operator");
 
         Operator createdOperator =  operatorDao.addOperator(operator);
         System.out.println("                                       ");
@@ -111,9 +107,110 @@ public class Authentication {
 
     }
 
-    public static  void addCustomer(){ }
+    public static  void addCustomer(){
 
-    public static  void addDeliverer(){ }
+        System.out.println(" ADD CUSTOMER : ");
+        System.out.println("                               ");
+        System.out.println("                               ");
+        System.out.println("Please enter your information :");
+        System.out.println("-------------------------------");
+        System.out.println("                               ");
+
+        System.out.print("Enter your name : ");
+        String name = scanner.next();
+
+        System.out.print("Enter your email : ");
+        String email = scanner.next();
+
+        System.out.print("Enter your phone : ");
+        String phone = scanner.next();
+
+        System.out.print("Enter your password : ");
+        String password = scanner.next();
+
+        Customer customer = new Customer(name, email, phone, password,"customer");
+
+        Customer createdCustomer = customerDao.addCustomer(customer);
+
+        System.out.println("                                       ");
+        System.out.println("                                       ");
+
+        System.out.println("Please enter your address :");
+        System.out.println("----------------------------");
+        System.out.println("                             ");
+
+        System.out.print("Enter your country : ");
+        String country = scanner.next();
+
+        System.out.print("Enter your city : ");
+        String city = scanner.next();
+
+        System.out.print("Enter your street : ");
+        String street = scanner.next();
+
+        System.out.print("Enter your home number : ");
+        int homeNumber = scanner.nextInt();
+
+        Address address = new Address(country, city, street, homeNumber);
+
+        address.setUser(createdCustomer);
+
+        addressDao.addAddress(address);
+    }
+
+    public static  void addDeliverer(){
+
+
+        System.out.println(" ADD DELIVERER : ");
+        System.out.println("                               ");
+        System.out.println("                               ");
+        System.out.println("Please enter your information :");
+        System.out.println("-------------------------------");
+        System.out.println("                               ");
+
+        System.out.print("Enter your name : ");
+        String name = scanner.next();
+
+        System.out.print("Enter your email : ");
+        String email = scanner.next();
+
+        System.out.print("Enter your phone : ");
+        String phone = scanner.next();
+
+        System.out.print("Enter your password : ");
+        String password = scanner.next();
+
+        Deliverer deliverer = new Deliverer(name, email, phone, password,"deliverer");
+
+        Deliverer createdDeliverer = delivererDao.addDeliverer(deliverer);
+
+        System.out.println("                                       ");
+        System.out.println("                                       ");
+
+        System.out.println("Please enter your address :");
+        System.out.println("----------------------------");
+        System.out.println("                             ");
+
+        System.out.print("Enter your country : ");
+        String country = scanner.next();
+
+        System.out.print("Enter your city : ");
+        String city = scanner.next();
+
+        System.out.print("Enter your street : ");
+        String street = scanner.next();
+
+        System.out.print("Enter your home number : ");
+        int homeNumber = scanner.nextInt();
+
+        Address address = new Address(country, city, street, homeNumber);
+
+        address.setUser(createdDeliverer);
+
+        addressDao.addAddress(address);
+
+
+    }
 
     public static void login(){
 

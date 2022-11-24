@@ -5,13 +5,14 @@ import com.masay.dao.RestaurantDao;
 import com.masay.entity.Operator;
 import com.masay.entity.Restaurant;
 import com.masay.entity.User;
+
 import java.util.List;
 import java.util.Scanner;
 
 public class RestaurantManagement {
 
-    static OperatorDao operatorDao = new OperatorDao();
-    static RestaurantDao restaurantDao = new RestaurantDao();
+    public static OperatorDao operatorDao = new OperatorDao();
+    public static RestaurantDao restaurantDao = new RestaurantDao();
 
     static Scanner scanner = new Scanner(System.in);
 
@@ -83,5 +84,6 @@ public class RestaurantManagement {
         restaurants.forEach((restaurant) -> System.out.println("["+restaurant.getId()+"] - " + restaurant.getName()));
 
     }
+
 
 }

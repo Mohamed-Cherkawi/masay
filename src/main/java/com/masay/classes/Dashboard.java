@@ -9,6 +9,7 @@ public class Dashboard {
     static Scanner scanner = new Scanner(System.in);
 
     static int operatorDashboardChoice;
+    static int customerDashboardChoice;
 
     public static void dashboard(User user){
 
@@ -21,7 +22,7 @@ public class Dashboard {
                 break;
 
             case "customer":
-                customerDashboard();
+                customerDashboard(user);
                 break;
 
             case "deliverer":
@@ -59,7 +60,7 @@ public class Dashboard {
                     break;
 
                 case 2:
-                    mealsCrudManagement();
+                    MealsManagement.mealsCrudManagement(user);
                     break;
 
                 case 3:
@@ -71,9 +72,48 @@ public class Dashboard {
 
     }
 
-    private static void delivererDashboard() { System.out.println("The Deliverer Dashboard"); }
-    private static void customerDashboard() { System.out.println("The Customer Dashboard"); }
-    public static  void mealsCrudManagement(){ System.out.println("Meals CRUD Management Method"); }
-    public static  void ordersManagement(){ System.out.println("Orders Management Method"); }
+
+    public static void customerDashboard(User user) {
+
+        do {
+
+            System.out.println("                                                 ");
+            System.out.println("                                                 ");
+            System.out.println("Welcome To The Dashboard" + " : " + user.getName());
+            System.out.println("---------------------------------                ");
+            System.out.println("                                                 ");
+            System.out.println("                                                 ");
+            System.out.println("[1] - RESTAURANTS ");
+            System.out.println("[2] - ORDERS      ");
+            System.out.println("[0] - GO BACK          ");
+            System.out.println("                                 ");
+
+            System.out.print("Please enter your choice : ");
+
+            customerDashboardChoice = scanner.nextInt();
+
+            switch (customerDashboardChoice) {
+
+                case 1:
+                    CustomersManagement.displayRestaurantsList(user);
+                    break;
+
+                case 2:
+                    MealsManagement.mealsCrudManagement(user);
+                    break;
+
+                case 3:
+                    ordersManagement();
+                    break;
+            }
+
+        }while (operatorDashboardChoice != 0);
+
+    }
+
+
+    public static void delivererDashboard() { System.out.println("The Deliverer Dashboard"); }
+
+    public static void ordersManagement(){ System.out.println("Orders Management Method"); }
 
 }
