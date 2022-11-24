@@ -1,6 +1,6 @@
 package com.masay.dao;
 
-import com.masay.utils.PersistenceManager;
+import com.masay.util.PersistenceManager;
 import com.masay.entity.User;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
@@ -24,18 +24,21 @@ public class UserDao {
     }
 
     public User getUserByEmail(String email){
+        try {
+            em.getTransaction().begin();
 
-        em.getTransaction().begin();
+            Query query = em.createQuery("SELECT user FROM User user  where user.email = :email", User.class);
 
-        Query query = em.createQuery("SELECT user FROM User user  where user.email = :email ", User.class);
+            query.setParameter("email", email);
 
-        query.setParameter("email",email);
+            User user = (User) query.getSingleResult();
 
-        User user = (User) query.getSingleResult();
-
-        em.getTransaction().commit();
-
-        return user;
+            em.getTransaction().commit();
+            return user;
+        } catch ( Exception e ){
+            System.out.println("The email is not valid");
+        }
+        return null;
 
     }
 

@@ -3,7 +3,6 @@ package com.masay.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @Table(name = "restaurants")
 public class Restaurant {
 
@@ -30,9 +29,9 @@ public class Restaurant {
 
     @Override
     public String toString() {
-        return "Restaurant{" +
+        return "{\n" +
                 "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
+                ",\n name='" + name + '\'' +
+                "\n}";
     }
 }

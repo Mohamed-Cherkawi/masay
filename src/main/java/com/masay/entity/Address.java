@@ -21,12 +21,10 @@ public class Address {
     public Address() { }
 
     public Address(String country, String city, String street, Integer homeNumber) {
-
         this.country = country;
         this.city = city;
         this.street = street;
         this.homeNumber = homeNumber;
-
     }
 
     public void setId(Integer id) { this.id = id; }

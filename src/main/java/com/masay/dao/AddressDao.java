@@ -1,6 +1,6 @@
 package com.masay.dao;
 
-import com.masay.utils.PersistenceManager;
+import com.masay.util.PersistenceManager;
 
 import com.masay.entity.Address;
 import jakarta.persistence.EntityManager;
@@ -9,18 +9,17 @@ public class AddressDao {
 
     private EntityManager em = PersistenceManager.getEntityManager();
 
+    public void addAddress(Address address) {
+        try {
+            em.getTransaction().begin();
 
-    public Address addAddress(Address address) {
+            em.persist(address);
 
-        em.getTransaction().begin();
+            em.getTransaction().commit();
 
-        em.persist(address);
-
-        em.getTransaction().commit();
-
-        return  address;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
-
-
 }
